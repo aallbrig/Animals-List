@@ -1,0 +1,22 @@
+{
+  "name": "Llama-List",
+  "version": "1.0.0",
+  "description": "Llama list built under Flux paradigm, React for views, Backbone to sit behind Flux stores and supplied based on an Express server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andrewall/Animals-List.git"
+  },
+  "author": "Andrew Allbright",
+  "license": "MIT, I suppose?  If it helps please use it :)",
+  "bugs": {
+    "url": "https://github.com/andrewall/Animals-List/issues"
+  },
+  "homepage": "https://github.com/andrewall/Animals-List",
+  "dependencies": {
+    "express": "^4.12.3"
+  }
+}

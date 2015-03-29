@@ -1,2 +1,7 @@
 node_modules
 node_modules/*
+
+public/bower_componets
+public/bower_componets/*
+
+npm-debug.log

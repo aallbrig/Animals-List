@@ -6,3 +6,20 @@ body {
 a {
   color: #00B7FF;
 }
+
+.animal-card {
+  position: relative;
+  overflow: hidden;
+}
+.animal-card_ribbon {
+  position: absolute;
+  right: -30px;
+  top: 30px;
+  background-color: purple;
+  width: 150px;
+  height: 25px;
+  padding-top: 5px;
+  text-align: center;
+  vertical-align: center;
+  transform: rotate(45deg);
+}

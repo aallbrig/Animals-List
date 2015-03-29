@@ -31,6 +31,9 @@ define(function(require){
     }];
 
   var AnimalCard = React.createClass({
+    propTypes: {
+      animal : React.PropTypes.object
+    },
     footer: function(){
       return (
         <article key='footer'>
@@ -39,10 +42,19 @@ define(function(require){
         </article>
       )
     },
+    ribbon: function(){
+      if(this.props.animal.text == 'Home'){
+        return (<span className='animal-card_ribbon'><em>New!</em></span>);
+      }
+      return null;
+    },
     render: function(){
       return (
         <Panel footer={this.footer()} className="animal-card">
-          <img src='http://www.critterbabies.com/wp-content/uploads/2014/02/a1.jpg' className='img-responsive' alt='image!'/>
+          {this.ribbon()}
+          <img src='http://www.critterbabies.com/wp-content/uploads/2014/02/a1.jpg' 
+               className='img-responsive img-thumbnail'
+               alt='image!'/>
           <p>Animal card!</p>
         </Panel>
       );
@@ -51,11 +63,11 @@ define(function(require){
 
   return React.createClass({
     AnimalCards: function(){
-      return Animals.map(function(item, index){
+      return Animals.map(function(animal, index){
         window.console.log(index);
         return (
           <Col xs={6} sm={6} md={4}>
-            <AnimalCard/>
+            <AnimalCard animal={animal}/>
           </Col>
         );
       });

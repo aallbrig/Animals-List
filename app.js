@@ -9,12 +9,16 @@ var express = require('express'),
 
     routes = require('./routes/index'),
     users  = require('./routes/users'),
+    animals = require('./routes/animals'),
 
+    Config = require('./config/config')  // config is a reserved word
     app = express();
 
 livereload(app, config={
   'watchDir' : process.cwd()
 });
+
+console.log(Config);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/animals', animals);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

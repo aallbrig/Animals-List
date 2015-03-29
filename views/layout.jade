@@ -2,7 +2,30 @@ doctype html
 html
   head
     title= title
+    link(rel='stylesheet', href='/bower_components/bootswatch/superhero/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel='stylesheet', href='/node_modules/bootstrap/dist/bootstrap.min.css')
   body
+    script(src='/bower_components/react/react-with-addons.js')
+    script(src='/bower_components/react/JSXTransformer.js')
+    script(src='/bower_components/react-bootstrap/react-bootstrap.js')
+    script(src='/bower_components/requirejs/require.js')
+    script.
+      require.config({
+        baseUrl: 'javascripts',
+        jsx: {
+          fileExtension: '.jsx'
+        },
+        paths: {
+          react: '../bower_components/react/react-with-addons',
+          reactBootstrap: '../bower_components/react-bootstrap/react-bootstrap',
+          JSXTransformer: '../bower_components/jsx-requirejs-plugin/js/JSXTransformer',
+          jsx: '../bower_components/jsx-requirejs-plugin/js/jsx',
+          text: '../bower_components/requirejs-text/text',
+          backbone: '../bower_components/backbone/backbone',
+          components: 'components',
+          models: 'models',
+          pages: 'pages'
+        }
+      });
     block content
+    

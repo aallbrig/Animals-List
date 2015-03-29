@@ -1,7 +1,7 @@
 node_modules
 node_modules/*
 
-public/bower_componets
-public/bower_componets/**
+public/bower_components
+public/bower_components/**
 
 npm-debug.log

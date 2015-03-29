@@ -5,7 +5,10 @@ define(function(require){
       Grid = ReactBootstrap.Grid,
       Row = ReactBootstrap.Row,
       Col = ReactBootstrap.Col,
-      NavBar = require('jsx!components/NavBar');
+      Jumbotron = ReactBootstrap.Jumbotron,
+      Button = ReactBootstrap.Button,
+      NavBar = require('jsx!components/NavBar'),
+      AnimalCards = require('jsx!components/AnimalCards');
 
   return React.createClass({
     render: function(){
@@ -15,10 +18,15 @@ define(function(require){
           <Grid>
             <Row>
               <Col xs={12}>
-                Hey!
+                <Jumbotron>
+                  <h2>Welcome to Animal's List</h2>
+                  <p>Welcome to Animal's List-- the premiere animal browsing experience. Animal's List was founded with one purpose: to bring you and loveable animals together under one site.  Stay and browse the awesome animals!</p>
+                  <p><Button bsStyle='primary'>Learn more</Button></p>
+                </Jumbotron>
               </Col>
             </Row>
           </Grid>
+          <AnimalCards/>
         </span>
       );
     }

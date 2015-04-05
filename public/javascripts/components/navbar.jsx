@@ -10,25 +10,24 @@ define(function(require){
       NavItem = ReactBootstrap.NavItem,
       DropdownButton = ReactBootstrap.DropdownButton,
       MenuItem = ReactBootstrap.MenuItem,
-      CollapsableNav = ReactBootstrap.CollapsableNav;
-
-  var NavItems = [{
-      href : 'home',
-      text : 'Home'
-    }],
-    NavItemsRight = [{
-      href : 'home',
-      text : 'Home'
-    }];
-    MenuItems = [{
-      text : 'Action 1'
-    }];
+      CollapsableNav = ReactBootstrap.CollapsableNav,
+      NavItems = [{
+        href : 'home',
+        text : 'Home'
+      }],
+      NavItemsRight = [{
+        href : 'home',
+        text : 'Home'
+      }];
+      MenuItems = [{
+        text : 'Action 1'
+      }];
 
   return React.createClass({
     NavItems : function(){
       return NavItems.map(function(item, index){
-                return (<NavItem eventKey={index} href={item.href}>{item.text}</NavItem>);
-              });
+        return (<NavItem eventKey={index} href={item.href}>{item.text}</NavItem>);
+      });
     },
     MenuItems : function(){
       return MenuItems.map(function(item, index){
@@ -46,7 +45,7 @@ define(function(require){
           <Row>
             <Col xs={12}>
               <Navbar brand="Animal's List" toggleNavKey={0}>
-                <CollapsableNav eventKey={0}> {/* This is the eventKey referenced */}
+                <CollapsableNav eventKey={0}>
                   <Nav navbar>
                     {this.NavItems()}
                     <DropdownButton eventKey={3} title='Dropdown'>

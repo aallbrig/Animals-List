@@ -1,7 +1,6 @@
 /** @jsx React.DOM */
 define(function(require){
   var React = require('react'),
-      AnimalModel = require('models/Animal'),
       ReactBootstrap = require('reactBootstrap'),
       Grid = ReactBootstrap.Grid,
       Row = ReactBootstrap.Row,
@@ -13,34 +12,38 @@ define(function(require){
       MenuItem = ReactBootstrap.MenuItem,
       CollapsableNav = ReactBootstrap.CollapsableNav,
       Panel = ReactBootstrap.Panel,
+      Button = ReactBootstrap.Button,
       AnimalStore = require('stores/AnimalStore');
 
   var AnimalCard = React.createClass({
     propTypes: {
       animal : React.PropTypes.object
     },
+    onClick: function(){
+      window.console.log('Hi!  This is...');
+      window.console.log(this.props.animal);
+    },
     footer: function(){
       return (
         <article key='footer'>
-          <h4> This is an animal! </h4>
-          <p> Is it not cool? </p>
+          <h4>
+            This is {this.props.animal.commonName} wanting to speak with you about, you know, animal stuff.
+          </h4>
+          <p>{this.props.animal.greeting}</p>
+          <Button bsStyle='primary'
+                  className='form-control'
+                  onClick={this.onClick}>
+            Talk with me! 
+          </Button>
         </article>
       )
-    },
-    ribbon: function(){
-      if(this.props.animal.text == 'Home'){
-        return (<span className='animal-card_ribbon'><em>New!</em></span>);
-      }
-      return null;
     },
     render: function(){
       return (
         <Panel footer={this.footer()} className="animal-card">
-          {this.ribbon()}
           <img src='http://www.critterbabies.com/wp-content/uploads/2014/02/a1.jpg' 
                className='img-responsive img-thumbnail'
                alt='image!'/>
-          <p>Animal card!</p>
         </Panel>
       );
     }
@@ -49,7 +52,6 @@ define(function(require){
   return React.createClass({
     AnimalCards: function(animals){
       return animals.map(function(animal, index){
-        window.console.log(index);
         return (
           <Col xs={6} sm={6} md={4}>
             <AnimalCard animal={animal}/>

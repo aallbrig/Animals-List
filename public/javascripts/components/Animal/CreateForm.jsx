@@ -16,7 +16,7 @@ define(function(require){
     getInitialState: function(){
       return {
         created : false,
-        animalModel : new AnimalModel.Model({test:'test'})
+        animalModel : new AnimalModel.Model()
       };
     },
     onSubmit: function(e){
@@ -26,8 +26,8 @@ define(function(require){
       window.console.log(e);
       window.console.log('submit');
     },
-    onChange: function(){
-      window.console.log('onChange');
+    onChange: function(e){
+      this.state.animalModel.set(e.target.name, e.target.value);
     },
     render: function(){
       return (
@@ -39,9 +39,11 @@ define(function(require){
           <form onSubmit={this.onSubmit}>
             <Input type='text'
                    label='Animal Name'
+                   name='commonName'
                    onChange={this.onChange} />
             <Input type='text'
                    label='Animal Image Url'
+                   name='img/src'
                    onChange={this.onChange} />
             <Button bsStyle='primary'
                     type='submit'

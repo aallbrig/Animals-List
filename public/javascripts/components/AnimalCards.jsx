@@ -58,6 +58,7 @@ define(function(require){
     },
     _onChange: function(){
       window.console.log('something changed!');
+      this.forceUpdate();
     },
     AnimalCards: function(animals){
       return animals.map(function(animal, index){

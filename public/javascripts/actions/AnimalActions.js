@@ -4,7 +4,7 @@ define(function(require){
 
   var AnimalActions = {
     /**
-     * @param  {string} text
+     * @param  {animalModel} AnimalModel.Model
      */
     create: function(animalModel) {
       Dispatcher.dispatch({
@@ -14,8 +14,8 @@ define(function(require){
     },
 
     /**
-     * @param  {string} id The ID of the ToDo item
-     * @param  {string} text
+     * @param  {string} id The ID of the animal
+     * @param  {animalModel} AnimalModel.Model
      */
     update: function(id, animalModel) {
       Dispatcher.dispatch({
@@ -26,7 +26,7 @@ define(function(require){
     },
 
     /**
-     * @param  {string} id
+     * @param  {string} id The ID of the animal
      */
     destroy: function(id) {
       Dispatcher.dispatch({

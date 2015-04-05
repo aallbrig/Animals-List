@@ -16,6 +16,7 @@ define(function(require){
    * @param  {new AnimalModel.Model()} the animal that's being created
    */
   function create(animal) {
+    window.console.log(animal);
     AnimalCollection.add(animal);
     animal.id = animal.id || (+new Date() + Math.floor(Math.random() * 999999)).toString(36);
     // TODO: add server endpoint

@@ -8,7 +8,8 @@ define(function(require){
       Jumbotron = ReactBootstrap.Jumbotron,
       Button = ReactBootstrap.Button,
       NavBar = require('jsx!components/NavBar'),
-      AnimalCards = require('jsx!components/AnimalCards');
+      AnimalCards = require('jsx!components/AnimalCards'),
+      AnimalCreateForm = require('jsx!components/Animal/CreateForm');
 
   return React.createClass({
     render: function(){
@@ -26,6 +27,7 @@ define(function(require){
               </Col>
             </Row>
           </Grid>
+          <AnimalCreateForm />
           <AnimalCards/>
         </span>
       );

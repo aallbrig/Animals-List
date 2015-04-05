@@ -71,5 +71,7 @@ define(function(require){
         </Grid>
       );
     }
-  })
-})
+  });
+  
+});
+

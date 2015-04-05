@@ -2,14 +2,14 @@ define(function(require){
   var Dispatcher = require('dispatcher/Dispatcher'),
       AnimalConstants = require('constants/AnimalConstants');
 
-  var TodoActions = {
+  var AnimalActions = {
     /**
      * @param  {string} text
      */
-    create: function(text) {
+    create: function(animalModel) {
       Dispatcher.dispatch({
-        actionType: AnimalConstants.TODO_CREATE,
-        text: text
+        actionType: AnimalConstants.ANIMAL_CREATE,
+        animalModel: animalModel
       });
     },
 
@@ -17,39 +17,11 @@ define(function(require){
      * @param  {string} id The ID of the ToDo item
      * @param  {string} text
      */
-    updateText: function(id, text) {
+    update: function(id, animalModel) {
       Dispatcher.dispatch({
-        actionType: AnimalConstants.TODO_UPDATE_TEXT,
+        actionType: AnimalConstants.ANIMAL_UPDATE,
         id: id,
-        text: text
-      });
-    },
-
-    /**
-     * Toggle whether a single ToDo is complete
-     * @param  {object} todo
-     */
-    toggleComplete: function(todo) {
-      var id = todo.id;
-      if (todo.complete) {
-        Dispatcher.dispatch({
-          actionType: AnimalConstants.TODO_UNDO_COMPLETE,
-          id: id
-        });
-      } else {
-        Dispatcher.dispatch({
-          actionType: AnimalConstants.TODO_COMPLETE,
-          id: id
-        });
-      }
-    },
-
-    /**
-     * Mark all ToDos as complete
-     */
-    toggleCompleteAll: function() {
-      Dispatcher.dispatch({
-        actionType: AnimalConstants.TODO_TOGGLE_COMPLETE_ALL
+        animalModel: animalModel
       });
     },
 
@@ -58,20 +30,13 @@ define(function(require){
      */
     destroy: function(id) {
       Dispatcher.dispatch({
-        actionType: AnimalConstants.TODO_DESTROY,
+        actionType: AnimalConstants.ANIMAL_DESTROY,
         id: id
-      });
-    },
-
-    /**
-     * Delete all the completed ToDos
-     */
-    destroyCompleted: function() {
-      Dispatcher.dispatch({
-        actionType: AnimalConstants.TODO_DESTROY_COMPLETED
       });
     }
 
   };
+
+  return AnimalActions;
 
 });

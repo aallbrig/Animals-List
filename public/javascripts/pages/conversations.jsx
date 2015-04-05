@@ -9,7 +9,8 @@ define(function(require){
       Button = ReactBootstrap.Button,
       NavBar = require('jsx!components/NavBar'),
       StoreTest = require('stores/AnimalStore'),
-      AnimalCardGreetings = require('jsx!components/AnimalCardGreetings');
+      AnimalCardGreetings = require('jsx!components/AnimalCardGreetings'),
+      AnimalCreateForm = require('jsx!components/Animal/CreateForm');
 
   window.console.log(StoreTest);
 
@@ -24,10 +25,19 @@ define(function(require){
           <Grid>
             <Row>
               <Col xs={12}>
-                <Jumbotron>
-                  <h2>Conversations</h2>
-                  <p><Button bsStyle='primary'
-                             onClick={this.onClick}> Wow such cool </Button></p>
+                <Jumbotron className='clearfix'>
+                  <Col xs={6}>
+                    <h2>Conversations</h2>
+                    <p>
+                      <Button bsStyle='primary'
+                              onClick={this.onClick}> 
+                        Wow such cool 
+                      </Button>
+                    </p>
+                  </Col>
+                  <Col xs={6}>
+                    <AnimalCreateForm/>
+                  </Col>
                 </Jumbotron>
               </Col>
             </Row>

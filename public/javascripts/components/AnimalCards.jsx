@@ -15,6 +15,7 @@ define(function(require){
       Panel = ReactBootstrap.Panel,
       AnimalStore = require('stores/AnimalStore');
 
+
   var AnimalCard = React.createClass({
     propTypes: {
       animal : React.PropTypes.object
@@ -48,6 +49,16 @@ define(function(require){
   });
 
   return React.createClass({
+    componentDidMount: function() {
+      AnimalStore.addChangeListener(this._onChange);
+    },
+
+    componentWillUnmount: function() {
+      AnimalStore.removeChangeListener(this._onChange);
+    },
+    _onChange: function(){
+      window.console.log('something changed!');
+    },
     AnimalCards: function(animals){
       return animals.map(function(animal, index){
         return (

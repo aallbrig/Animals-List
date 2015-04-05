@@ -20,6 +20,8 @@ define(function(require){
     animal.id = animal.id || (+new Date() + Math.floor(Math.random() * 999999)).toString(36);
     // TODO: add server endpoint
     // AnimalCollection.sync();
+    window.console.log('Created!');
+    window.console.log(AnimalCollection);
   }
   // TODO: remove testing operations from file
   // var testModel = new AnimalModel.Model({id:(+new Date() + Math.floor(Math.random() * 999999)).toString(36),
@@ -70,13 +72,14 @@ define(function(require){
     // TODO: add server endpoint
     // AnimalCollection.sync();
   }
+  // TODO: remove testing operations from file
   // destroy(testModel.id);
 
   // TODO: remove testing operations from file
   testData.forEach(function(animal){
     create(new AnimalModel.Model(animal));
   });
-  window.console.log(AnimalCollection);
+  // window.console.log(AnimalCollection);
 
   var AnimalStore = _.extend({}, EventEmitter.prototype, {
     getAll: function() {
@@ -108,8 +111,11 @@ define(function(require){
 
   // Dispatcher registrations
   Dispatcher.register(function(action){
+    window.console.log('store action');
+    window.console.log(action);
     switch(action.actionType) {
       case AnimalConstants.ANIMAL_CREATE:
+        window.console.log('animal create event');
         create(action.animalModel);
         AnimalStore.emitChange();
         break;

@@ -29,12 +29,25 @@ define(function(require){
     onChange: function(e){
       this.state.animalModel.set(e.target.name, e.target.value);
     },
+    onCreateNew: function(){
+      this.setState({
+        created : false,
+        animalModel : new AnimalModel.Model()
+      });
+    },
     render: function(){
       return (
         <Panel header={'Animal Create Form'} 
                bsStyle='success'>
           { (this.state.created) ?
-            <h3> Thank you! </h3>
+            <div>
+              <h3> Thank you! </h3>
+              <Button bsStyle='primary'
+                      type='submit'
+                      onClick={this.onCreateNew}>
+                Create Another?
+              </Button>
+            </div>
           :
           <form onSubmit={this.onSubmit}>
             <Input type='text'

@@ -20,6 +20,7 @@ define(function(require){
       animal : React.PropTypes.object
     },
     onClick: function(){
+      // TODO: remove this fn and take user to a conversation
       window.console.log('Hi!  This is...');
       window.console.log(this.props.animal);
     },
@@ -39,9 +40,10 @@ define(function(require){
       )
     },
     render: function(){
+      var animalModel = this.props.animal;
       return (
         <Panel footer={this.footer()} className="animal-card">
-          <img src='http://www.critterbabies.com/wp-content/uploads/2014/02/a1.jpg' 
+          <img src={ animalModel.get('img').src }
                className='img-responsive img-thumbnail'
                alt='image!'/>
         </Panel>

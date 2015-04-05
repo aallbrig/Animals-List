@@ -1,19 +1,18 @@
 define(function(require){
-  var AnimalModel = require('models/Animal'),
+  var AnimalConversationModel = require('models/AnimalConversation'),
       Dispatcher = require('dispatcher/Dispatcher'),
       EventEmitter = require('eventEmitter'),
       AnimalConstants = require('constants/AnimalConstants'),
       _ = require('underscore'),
-      testData = require('tests/mockData/animals');
+      testData = require('tests/mockData/animalConversations');
 
   var eventEmitter = new EventEmitter(),
-      AnimalCollection = new AnimalModel.Collection(),
+      AnimalCollection = new AnimalConversationModel.Collection(),
       treturn = 'All good in the Animal Store!',
-      CHANGE_EVENT = 'change',
-      tempModels;
+      CHANGE_EVENT = 'change';
 
   /**
-   * @param  {new AnimalModel.Model()} the animal that's being created
+   * @param  {new AnimalConversationModel.Model()} the animal that's being created
    */
   function create(animal) {
     AnimalCollection.add(animal);
@@ -21,14 +20,10 @@ define(function(require){
     // TODO: add server endpoint
     // AnimalCollection.sync();
   }
-  // TODO: remove testing operations from file
-  // var testModel = new AnimalModel.Model({id:(+new Date() + Math.floor(Math.random() * 999999)).toString(36),
-  //                                        x:'1',y:'2',z:'3'});
-  // create(testModel);
 
   /**
-   * @param {AnimalModel.Model.id} id of an animal model
-   * @param {AnimalModel.Model.isValid()} Updates with a valid animal
+   * @param {AnimalConversationModel.Model.id} id of an animal model
+   * @param {AnimalConversationModel.Model.isValid()} Updates with a valid animal
    */
   function update(id, updates) {
     AnimalCollection.where({id:id}).map(function(model){
@@ -36,12 +31,9 @@ define(function(require){
       // model.sync();
       return model.set(updates);
     });
-    // window.console.log(tempModels);
     // TODO: add server endpoint
     // AnimalCollection.sync();
   }
-  // TODO: remove testing operations from file
-  // update(testModel.id, {x:'foo',y:'bar',z:'baz'});
 
   /**
    * @param  {object} Updates animals with information
@@ -56,9 +48,6 @@ define(function(require){
     // TODO: add server endpoint
     // AnimalCollection.sync();
   }
-  // TODO: remove testing operations from file
-  // updateAll({x:'wait',y:'whats',z:'up'});
-  // window.console.log(AnimalCollection);
 
   function destroy(id) {
     // delete _todos[id];
@@ -70,11 +59,10 @@ define(function(require){
     // TODO: add server endpoint
     // AnimalCollection.sync();
   }
-  // destroy(testModel.id);
 
   // TODO: remove testing operations from file
   testData.forEach(function(animal){
-    create(new AnimalModel.Model(animal));
+    create(new AnimalConversationModel.Model(animal));
   });
   window.console.log(AnimalCollection);
 

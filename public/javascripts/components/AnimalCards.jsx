@@ -34,10 +34,11 @@ define(function(require){
       return null;
     },
     render: function(){
+      var animalModel = this.props.animal;
       return (
         <Panel footer={this.footer()} className="animal-card">
           {this.ribbon()}
-          <img src='http://www.critterbabies.com/wp-content/uploads/2014/02/a1.jpg' 
+          <img src={ animalModel.get('img').src }
                className='img-responsive img-thumbnail'
                alt='image!'/>
           <p>Animal card!</p>
@@ -49,7 +50,6 @@ define(function(require){
   return React.createClass({
     AnimalCards: function(animals){
       return animals.map(function(animal, index){
-        window.console.log(index);
         return (
           <Col xs={6} sm={6} md={4}>
             <AnimalCard animal={animal}/>
